@@ -1,7 +1,7 @@
 ---
 - name: Ensure dependencies for building from source are installed (RedHat).
   package: "name={{ item }} state=installed"
-  with_items: {{ building_dependencies_packages }}
+  with_items: "{{ building_dependencies_packages }}"
   when: ansible_os_family == 'RedHat'
 
 - name: Update apt cache (Debian).
@@ -10,7 +10,7 @@
 
 - name: Ensure dependencies for building from source are installed (Debian).
   apt: "pkg={{ item }} state=installed"
-  with_items: {{ building_dependencies_packages }}
+  with_items: "{{ building_dependencies_packages }}"
   when: ansible_os_family == 'Debian'
 
 - name: Define php_fpm_daemon (if not defined already).
