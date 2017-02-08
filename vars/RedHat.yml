@@ -31,3 +31,27 @@ __php_fpm_pool_conf_path: "/etc/php-fpm.d/www.conf"
 
 __php_fpm_pool_user: apache
 __php_fpm_pool_group: apache
+
+
+__building_dependencies_packages:
+  - autoconf
+  - automake
+  - libtool
+  - bison
+  - make
+  - curl-devel
+  - recode-devel
+  - aspell-devel
+  - libxml2-devel
+  - pkgconfig
+  - libmcrypt-devel
+  - t1lib-devel
+  - libXpm-devel
+  - libpng-devel
+  - libjpeg-turbo-devel
+  - bzip2-devel
+  - openssl-devel
+  - freetype-devel
+  - libicu-devel
+  - mysql56-devel
+  - gmp-devel

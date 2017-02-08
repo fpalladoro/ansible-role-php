@@ -3,6 +3,11 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: Define building_dependencies_packages.
+  set_fact:
+    building_dependencies_packages: "{{ __building_dependencies_packages | list }}"
+  when: building_dependencies_packages is not defined
+
 - name: Define php_packages.
   set_fact:
     php_packages: "{{ __php_packages | list }}"

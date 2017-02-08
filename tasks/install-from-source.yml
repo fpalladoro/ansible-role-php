@@ -1,28 +1,7 @@
 ---
 - name: Ensure dependencies for building from source are installed (RedHat).
   package: "name={{ item }} state=installed"
-  with_items:
-    - autoconf
-    - automake
-    - libtool
-    - bison
-    - make
-    - curl-devel
-    - recode-devel
-    - aspell-devel
-    - libxml2-devel
-    - pkgconfig
-    - libmcrypt-devel
-    - t1lib-devel
-    - libXpm-devel
-    - libpng-devel
-    - libjpeg-turbo-devel
-    - bzip2-devel
-    - openssl-devel
-    - freetype-devel
-    - libicu-devel
-    - mariadb-devel
-    - gmp-devel
+  with_items: {{ building_dependencies_packages }}
   when: ansible_os_family == 'RedHat'
 
 - name: Update apt cache (Debian).
@@ -31,27 +10,7 @@
 
 - name: Ensure dependencies for building from source are installed (Debian).
   apt: "pkg={{ item }} state=installed"
-  with_items:
-    - build-essential
-    - autoconf
-    - automake
-    - libtool
-    - bison
-    - pkg-config
-    - re2c
-    - libxml2-dev
-    - libcurl4-openssl-dev
-    - libbz2-dev
-    - libjpeg-dev
-    - libpng12-dev
-    - libxpm-dev
-    - libfreetype6-dev
-    - libgmp3-dev
-    - libmcrypt-dev
-    - libmysqlclient-dev
-    - libpspell-dev
-    - librecode-dev
-    - libssl-dev
+  with_items: {{ building_dependencies_packages }}
   when: ansible_os_family == 'Debian'
 
 - name: Define php_fpm_daemon (if not defined already).
