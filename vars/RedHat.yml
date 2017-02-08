@@ -34,6 +34,7 @@ __php_fpm_pool_group: apache
 
 
 __building_dependencies_packages:
+  - git
   - autoconf
   - automake
   - libtool

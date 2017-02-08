@@ -37,6 +37,7 @@ __php_fpm_pool_user: www-data
 __php_fpm_pool_group: www-data
 
 __building_dependencies_packages:
+  - git
   - build-essential
   - autoconf
   - automake
