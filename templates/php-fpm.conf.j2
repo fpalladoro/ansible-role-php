@@ -9,4 +9,5 @@ include={{ php_fpm_pool_conf_path | dirname }}/*.conf
 ;;;;;;;;;;;;;;;;;;
 
 [global]
+pid = /var/run/php-fpm/{{ php_fpm_daemon }}.pid
 error_log = /var/log/php-fpm.log
