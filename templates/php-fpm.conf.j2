@@ -2,7 +2,7 @@
 ; FPM Configuration ;
 ;;;;;;;;;;;;;;;;;;;;;
 
-include={{ php_fpm_pool_conf_path }}/*.conf
+include={{ php_fpm_pool_conf_path | dirname }}/*.conf
 
 ;;;;;;;;;;;;;;;;;;
 ; Global Options ;
