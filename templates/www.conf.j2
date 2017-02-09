@@ -5,8 +5,8 @@ user = {{ php_fpm_pool_user }}
 group = {{ php_fpm_pool_group }}
 
 pm = dynamic
-pm.max_children = 50
-pm.start_servers = 5
-pm.min_spare_servers = 5
-pm.max_spare_servers = 5
-pm.max_requests = 500
+pm.max_children = {{ ansible_processor_vcpus * 10 | int }}
+pm.start_servers = {{ ansible_processor_vcpus * 2 | int }}
+pm.min_spare_servers = {{ ansible_processor_vcpus | int }}
+pm.max_spare_servers = {{ ansible_processor_vcpus * 5 | int }}
+pm.max_requests = {{ ansible_processor_vcpus * 1000 | int }}
