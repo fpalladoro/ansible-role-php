@@ -14,7 +14,7 @@ php_install_recommends: yes
 php_enable_webserver: true
 
 # PHP-FPM configuration.
-php_enable_php_fpm: false
+php_enable_php_fpm: true
 php_fpm_listen: "127.0.0.1:9000"
 php_fpm_listen_allowed_clients: "127.0.0.1"
 php_fpm_pm_max_children: "{{ ansible_processor_vcpus * 10 | int }}"
@@ -50,7 +50,7 @@ php_apc_enable_cli: "0"
 php_use_managed_ini: true
 
 php_expose_php: "On"
-php_memory_limit: "256M"
+php_memory_limit: "128M"
 php_max_execution_time: "60"
 php_max_input_time: "60"
 php_max_input_vars: "1000"
@@ -66,7 +66,7 @@ php_allow_url_fopen: "On"
 
 php_sendmail_path: "/usr/sbin/sendmail -t -i"
 php_output_buffering: "4096"
-php_short_open_tag: "Off"
+php_short_open_tag: "On"
 php_disable_functions: []
 
 php_session_cookie_lifetime: 0
@@ -81,8 +81,8 @@ php_display_errors: "Off"
 php_display_startup_errors: "Off"
 
 # Install PHP from source (instead of using a package manager) with these vars.
-php_install_from_source: false
-php_source_version: "master"
+php_install_from_source: true
+php_source_version: "php-7.1.1"
 php_source_clone_dir: "~/php-src"
 php_source_clone_depth: 1
 php_source_install_path: "/opt/php"
@@ -98,6 +98,7 @@ php_source_configure_command: >
   --enable-zip
   --enable-bcmath
   --enable-pcntl
+  --enable-fpm
   --enable-ftp
   --enable-exif
   --enable-calendar

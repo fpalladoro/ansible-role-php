@@ -14,7 +14,7 @@ __php_packages:
   - php7.0-mbstring
   - php-sqlite3
   - php-apcu
-__php_webserver_daemon: "apache2"
+__php_webserver_daemon: "nginx"
 
 # Vendor-specific configuration paths on Debian/Ubuntu make my brain asplode.
 __php_conf_paths:
