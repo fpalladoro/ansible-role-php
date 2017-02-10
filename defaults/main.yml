@@ -21,6 +21,7 @@ php_fpm_pm_max_children: "{{ ansible_processor_vcpus * 10 | int }}"
 php_fpm_pm_start_servers: "{{ ansible_processor_vcpus * 2 | int }}"
 php_fpm_pm_min_spare_servers: "{{ ansible_processor_vcpus | int }}"
 php_fpm_pm_max_spare_servers: "{{ ansible_processor_vcpus * 5 | int }}"
+php_fpm_pm_max_requests: "{{ ansible_processor_vcpus * 1000 | int }}"
 
 # The executable to run when calling PHP from the command line.
 php_executable: "php"
