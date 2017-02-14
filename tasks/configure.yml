@@ -18,10 +18,3 @@
   with_items: "{{ php_conf_paths }}"
   notify: restart webserver
   when: php_use_managed_ini
-
-- name: Ensure error log path exist.
-  file:
-    path: "{{ php_error_log }}"
-    state: touch
-    user: "{{ php_fpm_pool_user }}"
-    group: "{{ php_fpm_pool_group }}"

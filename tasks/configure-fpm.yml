@@ -43,6 +43,26 @@
     mode: 0644
     force: no
 
+- name: Ensure error log path exist.
+  file:
+    path: "{{ php_error_log_dir }}"
+    state: directory
+    owner: "{{ php_fpm_pool_user }}"
+    group: "{{ php_fpm_pool_group }}"
+
+- name: Configure php-fpm (if enabled).
+  lineinfile:
+    dest: "{{ php_fpm_conf_path }}/php-fpm.conf"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - regexp: "^error_log.?=.+$"
+      line: "error_log = {{ php_error_log_dir }}/php-fpm.error.log"
+
+  when: php_enable_php_fpm
+  notify: restart php-fpm
+
 - name: Configure php-fpm pool (if enabled).
   lineinfile:
     dest: "{{ php_fpm_pool_conf_path }}"
